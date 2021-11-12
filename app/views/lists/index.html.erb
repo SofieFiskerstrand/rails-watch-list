@@ -1,0 +1,11 @@
+<h1 id="banner">Create your movie list</h1>
+
+<table>
+  <tbody>
+    <% @lists.each do |list| %>
+      <tr>
+        <td><%= link_to list.name, list_path(list) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

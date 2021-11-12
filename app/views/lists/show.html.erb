@@ -1,0 +1,19 @@
+
+<h1>
+  <%= @list.name %>
+</h1>
+
+<% @list.bookmarks.each do |bookmark| %>
+  <%= bookmark.movie.title %>:
+  "<%= bookmark.comment %>"
+
+<%= link_to bookmark_path(bookmark),
+            method: :delete,
+            data: { confirm: "Are you sure?" } do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+<% end  %>
+
+<button type="button" class="btn btn-light"> <%= link_to 'New list', new_list_path %> </button>
+<button type="button" class="btn btn-light"> <%= link_to 'New bookmark', new_list_bookmark_path(@list) %> </button>
+<button type="button" class="btn btn-light"> <%= link_to 'Back', lists_path %> </button>
